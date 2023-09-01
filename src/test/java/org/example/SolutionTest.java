@@ -8,20 +8,49 @@ import org.junit.jupiter.api.Test;
 class SolutionTest {
     private final Solution solution = new Solution();
 
-    public void assertAnswer(String s, String answer) {
+    public void assertAnswer(String s, int answer) {
         // when
-        String result = solution.solution(s);
+        int result = solution.solution(s);
 
         // then
         Assertions.assertEquals(result, answer);
     }
 
-    @Disabled
-    @Test @DisplayName("이 메서드는 Mock Up 이다.")
-    void testcase0() {
+    @Test
+    void testcase1() {
         // given
-        String s = "1 2 3 4";
-        String answer = "1 4";
+        String s = "[](){}";
+        int answer = 3;
+
+        // when & then
+        assertAnswer(s, answer);
+    }
+
+    @Test
+    void testcase2() {
+        // given
+        String s = "}]()[{";
+        int answer = 2;
+
+        // when & then
+        assertAnswer(s, answer);
+    }
+
+    @Test
+    void testcase3() {
+        // given
+        String s = "[)(]]";
+        int answer = 0;
+
+        // when & then
+        assertAnswer(s, answer);
+    }
+
+    @Test
+    void testcase4() {
+        // given
+        String s = "}}}";
+        int answer = 0;
 
         // when & then
         assertAnswer(s, answer);
